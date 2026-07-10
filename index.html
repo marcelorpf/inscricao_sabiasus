@@ -1,6 +1,5 @@
 <div style="font-family: Arial, sans-serif; max-width: 650px; margin: 0 auto; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #ffffff; color: #333333; line-height: 1.5;">
     
-    <!-- Imagem no topo -->
     <div style="text-align: center; margin-bottom: 20px;">
         <img src="https://lh7-rt.googleusercontent.com/formsz/AN7BsVBD0qT91Pfy_3xGfb7zsfSUitadX33f9ZfmvDaKjmxKXZXZWKUkpPNRe5yclMhwZPbkUsSLjnsgkCCnCeIZvDpTRq8T7jWkdFN-5-yHQeZrDxbBGQolA1nESXOxj7kuewV5D3d-QpxLrmR9m_W9cSBWh1CaMQzlZw=s2048-fcrop64=1,000012a4ffffd2a3?key=H_BLdJe-0RdVO-JWwpmAcg" alt="UFPB / Identificação" style="max-width: 100%; height: auto; border-radius: 4px;">
     </div>
@@ -9,7 +8,6 @@
         Formulário de Inscrição e Autodeclaração de Vínculo SUS
     </h3>
 
-    <!-- ALERTA AJUSTADO: REQUISITO OBRIGATÓRIO (CONSIDERAÇÃO DA INSCRIÇÃO) -->
     <div style="background-color: #f2dede; border-left: 4px solid #d9534f; color: #a94442; padding: 15px; margin-bottom: 20px; border-radius: 4px; font-size: 14px; text-align: justify; font-weight: bold;">
         🚨 REQUISITO OBRIGATÓRIO DE PREENCHIMENTO
         <p style="margin: 8px 0 0 0; font-weight: normal; color: #333333;">
@@ -17,7 +15,6 @@
         </p>
     </div>
 
-    <!-- ALERTAS ADICIONAIS DE INSCRIÇÃO -->
     <div style="background-color: #fcf8e3; border-left: 4px solid #f0ad4e; color: #8a6d3b; padding: 15px; margin-bottom: 20px; border-radius: 4px; font-size: 14px; text-align: justify;">
         <p style="margin: 0 0 10px 0; font-weight: bold;">⚠️ ATENÇÃO: ETAPA COMPLEMENTAR AO SIGEVENTOS</p>
         <p style="margin: 0 0 10px 0;">
@@ -28,8 +25,7 @@
         </p>
     </div>
 
-    <!-- Início do Formulário -->
-    <form action="https://script.google.com/macros/s/AKfycbwUydcR_N9QJHFxGWt7HzVLWwlBHo-TjkYb7U0zLTl0a3UDav9ZYnBStlYxr_Dh0Ucc/exec" method="POST">
+    <form id="formInscricao">
         
         <p style="margin-bottom: 15px;">
             <label style="font-weight: bold; display: block; margin-bottom: 5px;">Nome Completo:</label>
@@ -143,10 +139,52 @@
         </div>
         
         <div style="text-align: center;">
-            <button type="submit" style="background-color: #1a5c8a; color: white; padding: 12px 40px; border: none; border-radius: 4px; font-size: 16px; font-weight: bold; cursor: pointer; width: 100%; max-width: 280px; box-shadow: 0 2px 4px rgba(0,0,0,0.15);">
+            <button type="submit" id="btnEnviar" style="background-color: #1a5c8a; color: white; padding: 12px 40px; border: none; border-radius: 4px; font-size: 16px; font-weight: bold; cursor: pointer; width: 100%; max-width: 280px; box-shadow: 0 2px 4px rgba(0,0,0,0.15);">
                 Gravar Inscrição
             </button>
         </div>
         
     </form>
 </div>
+
+<script>
+    document.getElementById('formInscricao').addEventListener('submit', function(e) {
+        e.preventDefault(); // Impede o comportamento padrão que causa o erro 405
+        
+        var botao = document.getElementById('btnEnviar');
+        botao.disabled = true;
+        botao.innerText = "Enviando dados...";
+        botao.style.backgroundColor = "#cccccc";
+        botao.style.cursor = "not-allowed";
+
+        var urlScript = "https://script.google.com/macros/s/AKfycbwUydcR_N9QJHFxGWt7HzVLWwlBHo-TjkYb7U0zLTl0a3UDav9ZYnBStlYxr_Dh0Ucc/exec";
+        var formData = new FormData(this);
+
+        // Converte FormData para URL Encoded (Necessário para o doPost do Apps Script receber corretamente)
+        var searchParams = new URLSearchParams();
+        for (var pair of formData.entries()) {
+            searchParams.append(pair[0], pair[1]);
+        }
+
+        // Executa o envio assíncrono bypassando restrições do GitHub
+        fetch(urlScript, {
+            method: 'POST',
+            body: searchParams,
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            mode: 'no-cors' // Permite o disparo cross-origin sem problemas de cabeçalho
+        })
+        .then(function() {
+            // Como usamos 'no-cors', o redirecionamento é feito forçando a chamada GET direta para a tela bonita do Google
+            window.location.href = urlScript;
+        })
+        .catch(function(error) {
+            alert('Ocorreu um erro ao enviar os dados. Por favor, tente novamente.');
+            botao.disabled = false;
+            botao.innerText = "Gravar Inscrição";
+            botao.style.backgroundColor = "#1a5c8a";
+            botao.style.cursor = "pointer";
+        });
+    });
+</script>
