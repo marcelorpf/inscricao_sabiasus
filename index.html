@@ -9,7 +9,7 @@
     </h3>
 
     <div style="background-color: #fcf8e3; border-left: 4px solid #f0ad4e; color: #8a6d3b; padding: 15px; margin-bottom: 20px; border-radius: 4px; font-size: 14px; text-align: justify;">
-        <p style="margin: 0 0 10px 0; font-weight: bold;">⚠️ ATENÇÃO: FORMULÁRIO COMPLEMENTAR</p>
+        <p style="margin: 0 0 10px 0; font-weight: bold;">⚠️ ATENÇÃO: ETAPA COMPLEMENTAR OBRIGATÓRIA</p>
         <p style="margin: 0 0 10px 0;">
             Este formulário é <strong>complementar</strong> aos campos nativos do SIGEventos. Os candidatos devem preencher obrigatoriamente todos os campos abaixo e <strong>finalizar a sua inscrição dentro do sistema SIGEventos</strong> para que sua participação seja validada.
         </p>
@@ -18,7 +18,7 @@
         </p>
     </div>
 
-    <form action="https://script.google.com/macros/s/AKfycbwUydcR_N9QJHFxGWt7HzVLWwlBHo-TjkYb7U0zLTl0a3UDav9ZYnBStlYxr_Dh0Ucc/exec" method="POST">
+    <form action="URL_DO_SEU_GOOGLE_APPS_SCRIPT" method="POST">
         
         <p style="margin-bottom: 15px;">
             <label style="font-weight: bold; display: block; margin-bottom: 5px;">Nome Completo:</label>
@@ -30,7 +30,20 @@
             <input type="email" name="email" required style="width: 100%; padding: 8px; border: 1px solid #cccccc; border-radius: 4px; box-sizing: border-box;">
         </p>
 
-        <div style="margin-bottom: 20px;">
+        <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
+            <tr>
+                <td style="width: 75%; padding-right: 10px; vertical-align: top;">
+                    <label style="font-weight: bold; display: block; margin-bottom: 5px;">Cidade:</label>
+                    <input type="text" name="cidade" required style="width: 100%; padding: 8px; border: 1px solid #cccccc; border-radius: 4px; box-sizing: border-box;">
+                </td>
+                <td style="width: 25%; vertical-align: top;">
+                    <label style="font-weight: bold; display: block; margin-bottom: 5px;">UF:</label>
+                    <input type="text" name="uf" maxlength="2" placeholder="PB" required style="width: 100%; padding: 8px; border: 1px solid #cccccc; border-radius: 4px; text-transform: uppercase; text-align: center; box-sizing: border-box;">
+                </td>
+            </tr>
+        </table>
+
+        <div style="margin-bottom: 20px; border-top: 1px dashed #e0e0e0; padding-top: 15px;">
             <label style="font-weight: bold; display: block; margin-bottom: 8px;">Gênero:</label>
             <label style="display: block; margin-bottom: 6px; cursor: pointer;"><input type="radio" name="genero" value="Mulher Cisgênero" required style="margin-right: 8px;">Mulher Cisgênero</label>
             <label style="display: block; margin-bottom: 6px; cursor: pointer;"><input type="radio" name="genero" value="Homem Cisgênero" style="margin-right: 8px;">Homem Cisgênero</label>
@@ -42,6 +55,41 @@
                 <label style="display: inline-block; cursor: pointer; margin-right: 5px;"><input type="radio" name="genero" value="Outro" style="margin-right: 8px;">Outro:</label>
                 <input type="text" name="genero_outro" placeholder="Especifique seu gênero" style="width: 70%; padding: 5px; border: 1px solid #cccccc; border-radius: 4px; display: inline-block; box-sizing: border-box; font-size: 14px;">
             </div>
+        </div>
+
+        <div style="margin-bottom: 20px; border-top: 1px dashed #e0e0e0; padding-top: 15px;">
+            <label style="font-weight: bold; display: block; margin-bottom: 8px;">Raça, Cor ou Etnia:</label>
+            <label style="display: block; margin-bottom: 6px; cursor: pointer;"><input type="radio" name="raca_cor" value="Branca" required style="margin-right: 8px;">Branca</label>
+            <label style="display: block; margin-bottom: 6px; cursor: pointer;"><input type="radio" name="raca_cor" value="Preta" style="margin-right: 8px;">Preta</label>
+            <label style="display: block; margin-bottom: 6px; cursor: pointer;"><input type="radio" name="raca_cor" value="Parda" style="margin-right: 8px;">Parda</label>
+            <label style="display: block; margin-bottom: 6px; cursor: pointer;"><input type="radio" name="raca_cor" value="Amarela" style="margin-right: 8px;">Amarela</label>
+            <label style="display: block; margin-bottom: 6px; cursor: pointer;"><input type="radio" name="raca_cor" value="Indígena" style="margin-right: 8px;">Indígena</label>
+            <label style="display: block; margin-bottom: 6px; cursor: pointer;"><input type="radio" name="raca_cor" value="Não declarado / Desejo não informar" style="margin-right: 8px;">Desejo não informar</label>
+        </div>
+
+        <div style="margin-bottom: 20px; border-top: 1px dashed #e0e0e0; padding-top: 15px;">
+            <label style="font-weight: bold; display: block; margin-bottom: 8px;">Pertence a algum Povo ou Comunidade Tradicional?</label>
+            <label style="display: block; margin-bottom: 6px; cursor: pointer;"><input type="radio" name="povo_tradicional" value="Não" required style="margin-right: 8px;">Não</label>
+            <label style="display: block; margin-bottom: 6px; cursor: pointer;"><input type="radio" name="povo_tradicional" value="Quilombola" style="margin-right: 8px;">Sim, Quilombola</label>
+            <label style="display: block; margin-bottom: 6px; cursor: pointer;"><input type="radio" name="povo_tradicional" value="Indígena Residente em Território" style="margin-right: 8px;">Sim, Indígena Residente em Território</label>
+            <label style="display: block; margin-bottom: 6px; cursor: pointer;"><input type="radio" name="povo_tradicional" value="Ribeirinho" style="margin-right: 8px;">Sim, Ribeirinho</label>
+            <label style="display: block; margin-bottom: 6px; cursor: pointer;"><input type="radio" name="povo_tradicional" value="Cigano" style="margin-right: 8px;">Sim, Cigano</label>
+            <div style="margin-top: 8px;">
+                <label style="display: inline-block; cursor: pointer; margin-right: 5px;"><input type="radio" name="povo_tradicional" value="Outro" style="margin-right: 8px;">Sim, Outro:</label>
+                <input type="text" name="povo_tradicional_outro" placeholder="Especifique a comunidade/povo" style="width: 70%; padding: 5px; border: 1px solid #cccccc; border-radius: 4px; display: inline-block; box-sizing: border-box; font-size: 14px;">
+            </div>
+        </div>
+
+        <div style="margin-bottom: 20px; border-top: 1px dashed #e0e0e0; padding-top: 15px;">
+            <label style="font-weight: bold; display: block; margin-bottom: 4px;">É pessoa com deficiência (PcD)?</label>
+            <span style="font-size: 12px; color: #666666; display: block; margin-bottom: 10px;">(Caso sim, selecione uma ou mais opções aplicáveis)</span>
+            
+            <label style="display: block; margin-bottom: 6px; cursor: pointer;"><input type="checkbox" name="pcd_nao" value="Não se aplica" style="margin-right: 8px;">Não se aplica / Não possuo deficiência</label>
+            <label style="display: block; margin-bottom: 6px; cursor: pointer;"><input type="checkbox" name="pcd_fisica" value="Física" style="margin-right: 8px;">Deficiência Física</label>
+            <label style="display: block; margin-bottom: 6px; cursor: pointer;"><input type="checkbox" name="pcd_visual" value="Visual" style="margin-right: 8px;">Deficiência Visual</label>
+            <label style="display: block; margin-bottom: 6px; cursor: pointer;"><input type="checkbox" name="pcd_auditiva" value="Auditiva" style="margin-right: 8px;">Deficiência Auditiva</label>
+            <label style="display: block; margin-bottom: 6px; cursor: pointer;"><input type="checkbox" name="pcd_intelectual" value="Intelectual/Mental" style="margin-right: 8px;">Deficiência Intelectual / Mental</label>
+            <label style="display: block; margin-bottom: 6px; cursor: pointer;"><input type="checkbox" name="pcd_multipla" value="Múltipla" style="margin-right: 8px;">Deficiência Múltipla</label>
         </div>
 
         <div style="margin-bottom: 20px; border-top: 1px dashed #e0e0e0; padding-top: 15px;">
