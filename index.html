@@ -1,5 +1,6 @@
 <div style="font-family: Arial, sans-serif; max-width: 650px; margin: 0 auto; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px; background-color: #ffffff; color: #333333; line-height: 1.5;">
     
+    <!-- Imagem no topo -->
     <div style="text-align: center; margin-bottom: 20px;">
         <img src="https://lh7-rt.googleusercontent.com/formsz/AN7BsVBD0qT91Pfy_3xGfb7zsfSUitadX33f9ZfmvDaKjmxKXZXZWKUkpPNRe5yclMhwZPbkUsSLjnsgkCCnCeIZvDpTRq8T7jWkdFN-5-yHQeZrDxbBGQolA1nESXOxj7kuewV5D3d-QpxLrmR9m_W9cSBWh1CaMQzlZw=s2048-fcrop64=1,000012a4ffffd2a3?key=H_BLdJe-0RdVO-JWwpmAcg" alt="UFPB / Identificação" style="max-width: 100%; height: auto; border-radius: 4px;">
     </div>
@@ -8,17 +9,27 @@
         Formulário de Inscrição e Autodeclaração de Vínculo SUS
     </h3>
 
-    <div style="background-color: #fcf8e3; border-left: 4px solid #f0ad4e; color: #8a6d3b; padding: 15px; margin-bottom: 20px; border-radius: 4px; font-size: 14px; text-align: justify;">
-        <p style="margin: 0 0 10px 0; font-weight: bold;">⚠️ ATENÇÃO: ETAPA COMPLEMENTAR OBRIGATÓRIA</p>
-        <p style="margin: 0 0 10px 0;">
-            Este formulário é <strong>complementar</strong> aos campos nativos do SIGEventos. Os candidatos devem preencher obrigatoriamente todos os campos abaixo e <strong>finalizar a sua inscrição dentro do sistema SIGEventos</strong> para que sua participação seja validada.
-        </p>
-        <p style="margin: 0;">
-            É <strong>imprescindível</strong> que o candidato informe um <strong>e-mail válido e ativo</strong> no ato da inscrição. Esse canal será utilizado para o envio do questionário sociodemográfico, do termo de autodeclaração de vínculo com o SUS, das credenciais de acesso ao Ambiente Virtual de Aprendizagem (AVA) e de toda e qualquer comunicação oficial do curso. Inscrições com endereços eletrônicos inválidos ou inoperantes serão sumariamente desconsideradas.
+    <!-- ALERTA AJUSTADO: REQUISITO OBRIGATÓRIO (CONSIDERAÇÃO DA INSCRIÇÃO) -->
+    <div style="background-color: #f2dede; border-left: 4px solid #d9534f; color: #a94442; padding: 15px; margin-bottom: 20px; border-radius: 4px; font-size: 14px; text-align: justify; font-weight: bold;">
+        🚨 REQUISITO OBRIGATÓRIO DE PREENCHIMENTO
+        <p style="margin: 8px 0 0 0; font-weight: normal; color: #333333;">
+            O preenchimento integral deste formulário eletrônico é <strong>requisito obrigatório</strong> para a validação da sua participação. O não preenchimento destas informações complementares e da autodeclaração fará com que a inscrição seja <strong>sumariamente desconsiderada</strong> pela coordenação do curso.
         </p>
     </div>
 
-    <form action="URL_DO_SEU_GOOGLE_APPS_SCRIPT" method="POST">
+    <!-- ALERTAS ADICIONAIS DE INSCRIÇÃO -->
+    <div style="background-color: #fcf8e3; border-left: 4px solid #f0ad4e; color: #8a6d3b; padding: 15px; margin-bottom: 20px; border-radius: 4px; font-size: 14px; text-align: justify;">
+        <p style="margin: 0 0 10px 0; font-weight: bold;">⚠️ ATENÇÃO: ETAPA COMPLEMENTAR AO SIGEVENTOS</p>
+        <p style="margin: 0 0 10px 0;">
+            Este formulário é <strong>complementar</strong> aos campos nativos do SIGEventos. Os candidatos devem responder a todos os campos abaixo e, em seguida, <strong>finalizar a sua inscrição dentro do sistema SIGEventos</strong> para que sua participação seja devidamente considerada.
+        </p>
+        <p style="margin: 0;">
+            É <strong>imprescindível</strong> que o inscrito informe um <strong>e-mail válido e ativo</strong>. Esse canal será utilizado para o envio do questionário sociodemográfico, do termo de autodeclaração de vínculo com o SUS, das credenciais de acesso ao Ambiente Virtual de Aprendizagem (AVA) e de toda e qualquer comunicação oficial do curso. Inscrições com endereços eletrônicos inválidos ou inoperantes serão sumariamente desconsideradas.
+        </p>
+    </div>
+
+    <!-- Início do Formulário -->
+    <form action="https://script.google.com/macros/s/AKfycbwUydcR_N9QJHFxGWt7HzVLWwlBHo-TjkYb7U0zLTl0a3UDav9ZYnBStlYxr_Dh0Ucc/exec" method="POST">
         
         <p style="margin-bottom: 15px;">
             <label style="font-weight: bold; display: block; margin-bottom: 5px;">Nome Completo:</label>
